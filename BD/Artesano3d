@@ -1,0 +1,32 @@
+create database Artesano3d;
+
+use Artesano3d;
+
+create table Categoria
+(
+IdCategoria int not null primary key,
+NombreC Char(20) not null
+);
+create table Producto
+(
+IdProducto int not null primary key auto_increment,
+NobreP char(20) not null,
+Dimensiones char(10) not null,
+Material char(20) not null,
+Costo double not null,
+ClaveCategoria int not null,
+foreign key (ClaveCategoria)REFERENCES Categoria(IdCategoria)
+);
+
+select * from Categoria;
+select * from Producto;
+
+--Valores de Categoria--
+insert into Categoria Values(1,'Animales');
+insert into Categoria Values(2,'Gardineria');
+
+
+--Valores de Productos--
+insert into Producto Values(1,'Axolotl Articulado','10x30','PLA',350,1);
+
+alter table Producto rename column NobreP to NombreP;
