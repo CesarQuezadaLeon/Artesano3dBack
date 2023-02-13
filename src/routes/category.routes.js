@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getCategory} from '../controllers/category.controller.js';
+import {getCategorys,getCategory,createCategory} from '../controllers/category.controller.js';
 
 const router = Router();
 /*End points
@@ -8,9 +8,9 @@ post - Insertar
 put - Actualizar
 delete - Eliminar
 */ 
-router.get('/category',getCategory)
-router.get('/category/:id')//consulta por id
-router.post('/category')//Insertar
+router.get('/category',getCategorys)
+router.get('/category/:id',getCategory)//consulta por id
+router.post('/category',createCategory)//Insertar
 router.patch('/category/:id')//Actualizar
 router.delete('/category/:id')//eliminar
 
