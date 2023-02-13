@@ -9,7 +9,7 @@ Herramientas usadas:
         mysql2
     #mysql 
     #Git
-    
+
 Rutas:
 
     #/api/productos
@@ -20,4 +20,7 @@ Rutas:
         Ordenar productos
         Consultar por categoria 
     #/api/Category
-        consular las categorias existentes de productos 
+        consular las categorias existentes 
+        Creacions de categorias
+        Eliminar categorias
+        Actualizar categorias
