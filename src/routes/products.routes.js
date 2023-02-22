@@ -1,5 +1,5 @@
 import { Router } from "express"; //importar para generar rutas
- //importacion de controladores
+import { getProduct } from "../controllers/products.controller.js"; //importacion de controladores
 
  const router = Router();
 /*End points
@@ -8,7 +8,7 @@ post - Insertar
 put - Actualizar
 delete - Eliminar
 */ 
- router.get('/products')
+ router.get('/products',getProduct)
  router.get('/products/:id')//consulta por id
  router.post('/products')//Insertar
  router.patch('/products/:id')//Actualizar
