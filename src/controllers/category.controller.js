@@ -30,17 +30,33 @@ export const getCategory = async(req,res)=>{
 }
 export const createCategory = async(req,res)=>{
     try {
-        const {NombreC} = req.body;
-        const [rows] = await pool.query('INSERT INTO Categoria(NombreC) VALUES (?)',[NombreC]);
+        const {IdCategoria,NombreC} = req.body;
+        const [rows] = await pool.query("INSERT INTO Categoria(IdCategoria,NombreC) VALUES (?,?)",[IdCategoria,NombreC]);
         res.send({
-            IdCategoria: rows.insertId,
+            IdCategoria,
             NombreC
         });
-        console.log(rows)
+        console.log(rows[0])
     } catch (error) {
+        console.log(error)
         return res.status(500).json({
             message:"Something goes whrong",
         });
-        console.log(error)
     }
 } 
+export const deleteCategory = async(req,res)=>{
+    try {
+        const [resul]=await pool.query('DELETE FROM Categoria WHERE id=?'[req.params.id]);
+        if(resul.affectedRows<=0){
+            return res.status(404).json({
+                message:"Categoria no exixtente",
+            });
+        };
+        res.sendStatus(204);
+        console.log(resul);
+    } catch (error) {
+        return res.status(500).json({
+            message:"Something goes whrong"
+        });
+    }
+}
