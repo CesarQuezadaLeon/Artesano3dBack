@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {getCategorys,getCategory,createCategory} from '../controllers/category.controller.js';
+import {getCategorys,getCategory,createCategory,deleteCategory,updateCategory} from '../controllers/category.controller.js';
 
 const router = Router();
 /*End points
@@ -11,7 +11,7 @@ delete - Eliminar
 router.get('/category',getCategorys)
 router.get('/category/:id',getCategory)//consulta por id
 router.post('/category',createCategory)//Insertar
-router.patch('/category/:id')//Actualizar
-router.delete('/category/:id')//eliminar
+router.patch('/category/:id',updateCategory)//Actualizar
+router.delete('/category/:id',deleteCategory)//eliminar
 
 export default router
