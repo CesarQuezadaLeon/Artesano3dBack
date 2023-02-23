@@ -10,7 +10,7 @@ NombreC Char(20) not null
 create table Producto
 (
 IdProducto int not null primary key auto_increment,
-NobreP char(20) not null,
+NombreP char(20) not null,
 Dimensiones char(10) not null,
 Material char(20) not null,
 Costo double not null,
