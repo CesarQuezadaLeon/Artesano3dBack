@@ -3,6 +3,7 @@ import ProductRoutes from './routes/products.routes.js'
 import CategoryRoutes from './routes/category.routes.js'
 import imageRoute from './routes/image.routes.js'
 
+
 const app = express();
 
 app.use(express.json());
