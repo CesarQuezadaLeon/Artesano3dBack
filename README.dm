@@ -24,3 +24,7 @@ Rutas:
         Creacions de categorias
         Eliminar categorias
         Actualizar categorias
+    #/api/images
+        Agregar imagenes a los productos
+        Eliminar imagenes a los productos
+        Mostrar imagenes de los productos

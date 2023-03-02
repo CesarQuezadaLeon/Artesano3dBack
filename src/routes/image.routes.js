@@ -3,10 +3,13 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get('/images')
-router.get('/images/:id')//consulta por id
-router.post('/images')//Insertar
-router.patch('/images/:id')//Actualizar
-router.delete('/images/:id')//eliminar
+router.get('/images',mantenimiento)
+router.get('/images/:id',mantenimiento)//consulta por id
+router.post('/images',mantenimiento)//Insertar
+router.patch('/images/:id',mantenimiento)//Actualizar
+router.delete('/images/:id',mantenimiento)//eliminar
 
+const mantenimiento = async(res,req)=>{
+    await send('mantenimiento');
+}
 export default router
