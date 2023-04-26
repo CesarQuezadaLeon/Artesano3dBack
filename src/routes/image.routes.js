@@ -1,13 +1,14 @@
 import { Router } from "express";
-
+import Subida from "../multerConfig.js";
+import {UploadImg,GetImg} from '../controllers/image.controller.js';
 
 const router = Router();
 
-router.get('/images',mantenimiento)
-router.get('/images/:id',mantenimiento)//consulta por id
-router.post('/images',mantenimiento)//Insertar
-router.patch('/images/:id',mantenimiento)//Actualizar
-router.delete('/images/:id',mantenimiento)//eliminar
+router.get('/images',GetImg)
+router.get('/images/:id')//consulta por id
+router.post('/images',Subida,UploadImg)//Insertar
+router.patch('/images/:id')//Actualizar
+router.delete('/images/:id')//eliminar
 
 const mantenimiento = async(res,req)=>{
     await send('mantenimiento');

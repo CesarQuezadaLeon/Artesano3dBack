@@ -1,21 +1,15 @@
-/*import multer from "multer";
-import { dirname, join } from 'path'
-import { fileURLToPath } from "url";
+import upload from '../multerConfig.js';
 
-
-const Dir_URL = dirname(fileURLToPath(import.meta.url)); 
-
-const multerUpload = multer({
-    dest: join(Dir_URL, '../uploads'),
-    limits:{
-        fieldNameSize:10000000
+export const UploadImg = async (req,res)=>{
+    try{console.log(req.file);
+    res.send("archivo subido exitosamente");}
+    catch(error){
+        return res.status(500).json({
+          message: "Something goes whrong",
+        });
     }
-});
+};
 
-
-/*
-multerUpload.single('file'),(req,res)=>{
-        console.log(req.file);
+export const GetImg = async (req,res)=>{
+    res.send("Todo bien funciona bien")
 }
-*/
-//export default multerUpload;*/
