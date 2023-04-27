@@ -1,7 +1,8 @@
-import upload from '../multerConfig.js';
+
 
 export const UploadImg = async (req,res)=>{
-    try{console.log(req.file);
+    try{
+        console.log(req.file);
     res.send("archivo subido exitosamente");}
     catch(error){
         return res.status(500).json({

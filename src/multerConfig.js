@@ -1,14 +1,27 @@
 import multer from 'multer';
+import { dirname, extname, join } from 'path';
+import { fileURLToPath } from 'url';
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './uploads');
+const CURRENT_DIR = dirname(fileURLToPath(import.meta.url));
+const MIMETYPES = ['image/jpeg', 'image/png'];
+
+const multerUpload = multer({
+  storage: multer.diskStorage({
+      destination: join(CURRENT_DIR, '../uploads'),
+      filename: (req, file, cb) => {
+          const fileExtension = extname(file.originalname);
+          const fileName = file.originalname.split(fileExtension)[0];
+
+          cb(null, `${fileName}-${Date.now()}${fileExtension}`);
+      },
+  }),
+  fileFilter: (req, file, cb) => {
+      if (MIMETYPES.includes(file.mimetype)) cb(null, true);
+      else cb(new Error(`Only ${MIMETYPES.join(' ')} mimetypes are allowed`));
   },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  }
+  limits: {
+      fieldSize: 10000000,
+  },
 });
 
-let Subida;
-
-export default Subida = multer({ storage }).single('archivo');
+export default multerUpload;
